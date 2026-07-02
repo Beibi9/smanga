@@ -40,6 +40,8 @@ const getOutputDir = (env: EnvVariables): string => {
   const appEnv = env.VITE_APP_ENV || env.VITE_ENV || 'default';
   console.log('构建环境:', appEnv);
   switch (appEnv) {
+    case 'cloudflare':
+      return 'dist/cloudflare';
     case 'docker':
       return 'dist/docker';
     case 'baota':

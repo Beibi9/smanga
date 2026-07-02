@@ -11,7 +11,7 @@ let ws: any;
 
 const isProduction = import.meta.env.PROD;
 const devUrl = import.meta.env.VITE_APP_WS_URL;
-const prodUrl = 'ws://' + location.host + '/websocket';
+const prodUrl = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/websocket`;
 
 const url = isProduction ? prodUrl : devUrl;
 
