@@ -51,11 +51,11 @@ const getOutputDir = (env: EnvVariables): string => {
   }
 };
 
-export default defineConfig(({mode}): UserConfig => {
+export default defineConfig(({mode, command}): UserConfig => {
   // 将mode参数传递给getEnvAndVersion函数
   const env = getEnvAndVersion(mode);
-  const isProduction = mode === 'production';
-  const isDevelopment = mode === 'development';
+  const isProduction = command === 'build';
+  const isDevelopment = command === 'serve';
 
   // 开发模式请求地址
   const devUrl = env.VITE_APP_PROXY_HTTP_URL || 'http://localhost:3000';
