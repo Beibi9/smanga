@@ -1,3 +1,9 @@
 name = "smanga-cloudflare"
-compatibility_date = "2026-07-02"
-pages_build_output_dir = "dist/cloudflare"
+main = "cloudflare-worker.js"
+compatibility_date = "2026-07-04"
+
+[assets]
+directory = "dist/cloudflare"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api", "/api/*", "/websocket"]
